@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Checker for Voting</title>
+    <style>
+    body{
+        background: linear-gradient(to right, #74ebd5, #ACB6E5);
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #form{
+        padding: 2%;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        width: 400px; /* desktop width */
+        max-width: 90%; /* mobile friendly */
+        box-sizing: border-box;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    h1{
+        color: #2c3e50;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    #ageInput{
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 3px solid #0c920c;
+        outline: none;
+        font-size: 1.1rem;
+        width: 100%;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+
+    #ageInput:focus {
+        border-color: #0c700c;
+        box-shadow: 0 0 5px #0c920c;
+    }
+
+    #button{
+        background-color: green;
+        outline: none;
+        border: none;
+        font-size: 1.2rem;
+        color: white;
+        padding: 10px 12px;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+
+    #button:hover {
+        background-color: darkgreen;
+        cursor: pointer;
+    }
+
+    #result{
+        margin-top: 10px;
+        font-size: 1.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #copyRight{
+        font-size: 0.9rem;
+        color: rgba(7, 51, 95, 0.8);
+        text-align: center;
+        padding: 1%;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 500px) {
+        #form{
+            padding: 8%;
+        }
+        h1{
+            font-size: 1.3rem;
+        }
+        #ageInput{
+            font-size: 1rem;
+            padding: 8px 10px;
+        }
+        #button{
+            font-size: 1rem;
+            padding: 8px 10px;
+        }
+        #result{
+            font-size: 1rem;
+        }
+        #copyRight{
+            font-size: 0.7rem;
+        }
+    }
+</style>
+
+
+</head>
+<body>
+    <section id="form">
+        <h1>Age Checker for Voting</h1>
+        <form id="ageForm">
+            <input type="number" name="age" id="ageInput" placeholder="Enter your age here" required>
+            <input type="submit" value="Check" id="button">
+        </form>
+        <div id="result"></div>
+    </section>
+    <section id="copyRight">
+        <h2>© Developed By Foysal Ahammad</h2>
+    </section>
+    <script>
+        const form = document.getElementById("ageForm");
+        const resultDiv = document.getElementById("result");
+
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+            const age = Number(document.getElementById("ageInput").value);
+            if(age>=18){
+                resultDiv.textContent = "You are Allowed to vote✅";
+                resultDiv.style.color = "green"
+            }else{
+                resultDiv.textContent = "You are Not Allowed to vote❌"
+                resultDiv.style.color = "red"
+            }
+        })
+    </script>
+
+</body>
+</html>
